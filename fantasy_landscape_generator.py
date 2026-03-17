@@ -128,20 +128,27 @@ def describe_landscape(landscape):
 
 def draw_ascii_map(landscape):
     map_symbols = landscape['visual_symbols']
-    terrain = landscape['terrain_type'][0]
+    terrain_char = landscape['terrain_type'][0]
+    npc_name = landscape['npc'][:8]  # truncate to fit
     
-    ascii_map = f"""
-  ┌─────────────────────────────┐
-  │         {map_symbols[0]}{map_symbols[1]}{map_symbols[2]}           │
+    ascii_map = r"""  ┌─────────────────────────────┐
+  │         {} {} {}           │
   │                             │
-  │        {terrain}{terrain}{terrain} {terrain}{terrain}{terrain} {terrain}{terrain}{terrain}         │
-  │       {terrain}{terrain}{terrain}{terrain}{terrain}{terrain}{terrain}{terrain}        │
-  │      {terrain}{terrain}{terrain} {terrain}{terrain}{terrain}  {terrain}{terrain}{terrain}        │
+  │        {}{}{} {}{}{} {}{}{}         │
+  │       {}{}{}{}{}{}{}{}        │
+  │      {}{}{} {}{}{}  {}{}{}        │
   │     Опасная зона              │
-  │          {npc[:8]:<8}                │
+  │          {:<8}                │
   │        Достопримечательность     │
-  └─────────────────────────────┘
-    """
+  └─────────────────────────────┘""".format(
+        map_symbols[0], map_symbols[1], map_symbols[2],
+        terrain_char*3, terrain_char*3, terrain_char*3,
+        terrain_char*3, terrain_char*3, terrain_char*3,
+        terrain_char*3, terrain_char*3, terrain_char*3, terrain_char*3,
+        terrain_char*3, terrain_char*3, terrain_char*3,
+        terrain_char*3, terrain_char*3, terrain_char*3,
+        npc_name
+    )
     return ascii_map
 
 def main():
