@@ -4,126 +4,104 @@ from datetime import datetime
 
 # === Основные параметры landscapes ===
 TERRAIN = [
-    "Горный хребет", "Древний лес", "Болотистые топи", "Пустыня",
+    "Горный хребт", "Древний лес", "Болотистые топи", "Пустыня",
     "Степи", "Тундра", "Вулканические земли", "Острова", "Подземелья"
 ]
 
 BIOMES = {
-    "Горный хребет": ["Скальные вершины", "Ледники", "Исчезающие тропы", "Пещеры"],
+    "Горный хребт": ["Скальные вершины", "Лёдники", "Исчезающие тропы", "Пещеры"],
     "Древний лес": ["Деревья-гиганты", "Заброшенные руины", "Сияющие грибы", "Туманные поляны"],
-    "Болотистые топи": ["Тростниковые заросли", "Гниющее болото", "Озёра с бугристой водой", "Заброшенные хижины"],
-    "Пустыня": ["Дюны", "Оазисы", "Песчаные бури", "Развалины древних цивилизаций"],
-    "Степи": ["Ковыльные поля", "Холмы", "Старинные курганы", "Сухие русла рек"],
-    "Тундра": ["Моховые поля", "Каменные валуны", "Полярные сияния", "Замёрзшие озёра"],
-    "Вулканические земли": ["Лавовые поля", "Жерла вулканов", "Серные испарения", "Обсидиановые пещеры"],
-    "Острова": ["Коралловые рифы", "Пальмовые рощи", "Подводные пещеры", "Сокровищница пиратов"],
-    "Подземелья": ["Тёмные коридоры", "Сокровищницы", "Ловушки", "Подземные реки"]
+    "Болотистые топи": ["Тростниковые заросли", "Гниющее болото", "Озёра с бугристой водой", "Заброшенные хижи"],
+    "Пустыня": ["Дюны", "Оазисы", "Песчаные бури", "Развалины древних цивилизаций"]
 }
 
 FEATURES = [
-    "Древние руины", "Таинственный алтарь", "Святилище природы", "Затерянный город",
-    "Магический водопад", "Обсерватория звёзд", "Сад забытых богов", "Кристальные пещеры",
-    "Портал в иной мир", "Храм забытых предков"
+    "Древние руины", "Таинственный водопад", "Таиномерный альтарь", "Обломка восхода луны",
+    "Заброшенная пещеря", "Остатки советника", "Таинственный лес", "Кристалловые спиры", "Магическое зеркало", "Проклятые статую"
+]
+
+LANDMARKS = [
+    "Архитектура с тайной стены", "Болотая водопад", "Пещерный образ", "Магический круг", "Таиновый лабиринт",
+    "Обломка с прорастающей стеной", "Навигационный образователь", "Ворота с медитативным свечением", "Прорастающая порода", "Проклятые кристаллы"
 ]
 
 DANGERS = [
-    "Ядовитые туманы", "Скрытые ямы", "Иллюзорные пути", "Переменные магические поля",
-    "Бродячие монстры", "Коварные ловушки", "Ментальные чудовища", "Магические паразиты",
-    "Паутина времени", "Проклятые земли"
+    "Подобные испарения", "Травляющие пески", "Магическое поле", "Подменные пещероборы", "Обвалованные земли",
+    "Лавины", "Чумы", "Воровые порталы", "Проклятые лабиринты", "Навигационные полесью состояния"
 ]
 
 NPCS = [
-    "Отшельник-знахарь", "Голем с душой", "Путешествующий торговец", "Дух предка",
-    "Хранитель знаний", "Пленный дух", "Пират-призрак", "Мудрый друид",
-    "Теневой странник", "Артефактор-кузнец"
+    "Одинокий мигрант", "Чуждой остров", "Проклятый голем", "Друид древних зелен", "Мертвый торговец",
+    "Обеспокоенный страж", "Беженец по проклятым тропам", "Потерянный воин", "Мутант с душой", "Охотник"
 ]
 
-QUESTS = [
-    "Найти потерянный артефакт", "Снять древнее проклятие", "Исследовать загадочные руины",
-    "Освободить пленный дух", "Найти путь домой", "Спасти деревню от нападения",
-    "Заполучить силу природы", "Открыть скрытый портал", "Раскрыть древнюю тайну", "Уничтожить источник зла"
+QUEST_HOOKS = [
+    "Найти запретительный артефакт", "Освободить древнюю статую", "Победить странника от проклятия", "Найти скрытый секрет", "Найти путь к запрещённому городу",
+    "Спасти захваченных", "Найти способа вернуть магию назад", "Встрети запрещённое портало", "Найти предмет для лечения", "Предотврать древнего бога"
 ]
 
-MAGIC = [
-    "Природная энергия", "Запретная мощь", "Астральная магия", "Телекинез",
-    "Восстановление", "Иллюзия", "Элементальное заклинание", "Проклятие", "Телепортация", "Дикая магия"
+WEATHER = [
+    "Сюжа", "Солнечно", "Туманно", "Серена", "Воздушно", "Метеорологическое",
+    "Стояно", "Посадочно", "Морозное", "Облачное"
 ]
 
-WEATHER = ["Пасмурно", "Дождливо", "Солнечно", "Туманно", "Штормово", "Снежно", "Ветрено", "Ясно", "Метельно", "Сумрачно"]
-MOOD = ["Зловещее", "Загадочное", "Печальное", "Таинственное", "Спокойное", "Опасное", "Вдохновляющее", "Прекрасное", "Угрожающее", "Безмятежное"]
+MOODS = [
+    "злобественное", "таинственное", "загадочное", "странное", "мережащее",
+    "заброшенное", "странное", "необычное", "тревожное", "опасное"
+]
 
-SYMBOLS = {
-    "Горный хребет": ["⛰️", "🏔️", "🪨", "🦅"],
-    "Древний лес": ["🌲", "🌳", "🍄", "🦌"],
-    "Болотистые топи": ["🌿", "🐸", "🐉", "💧"],
-    "Пустыня": ["🏜️", "🐫", "☀️", "🦂"],
-    "Степи": ["🌾", "🐎", "🏜️", "🌅"],
-    "Тундра": ["❄️", "🌨️", "🐻", "🌌"],
-    "Вулканические земли": ["🌋", "🔥", "⚡", "🪱"],
-    "Острова": ["🏝️", "🌴", "🦜", "🐬"],
-    "Подземелья": ["🕳️", "🕷️", "💰", "⛏️"]
-}
+MAP_SYMBOLS = ["🌍", "🗺", "🏙", "🌫", "🌌", "🏖", "🏘", "🕺", "🗺️", "🌊"]
 
-def generate_landscape(seed=None):
-    if seed:
-        random.seed(seed)
-    else:
-        seed = random.randint(1000, 9999)
+
+
+def generate_landscape(seed: int) -> dict:
+    """Создать одну конфигурацию ландайта с одной семейкой посеванилищества."""
+    random.seed(seed)
     
     terrain_type = random.choice(TERRAIN)
-    biome_features = random.sample(BIOMES[terrain_type], k=2)
-    feature = random.choice(FEATURES)
+    biome = random.choice(BIOMES[terrain_type])
+    features = random.sample(FEATURES, 2)
+    landmark = random.choice(LANDMARKS)
     danger = random.choice(DANGERS)
     npc = random.choice(NPCS)
-    quest_hook = random.choice(QUESTS)
-    magic_element = random.choice(MAGIC)
+    quest_hook = random.choice(QUEST_HOOKS)
     weather = random.choice(WEATHER)
-    mood = random.choice(MOOD)
-    symbols = SYMBOLS[terrain_type]
+    mood = random.choice(MOODS)
+    map_symbols = random.sample(MAP_SYMBOLS, 3)
     
-    landscape = {
-        'id': f"land-{hex(random.randint(0x100000, 0xFFFFFF))[2:]}",
-        'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M"),
-        'seed': seed,
-        'terrain_type': terrain_type,
-        'biome_features': biome_features,
-        'feature': feature,
-        'danger': danger,
-        'npc': npc,
-        'quest_hook': quest_hook,
-        'magic_element': magic_element,
-        'weather': weather,
-        'mood': mood,
-        'visual_symbols': symbols
+    return {
+        "seed": seed,
+        "terrain_type": terrain_type,
+        "biome": biome,
+        "features": features,
+        "landmark": landmark,
+        "danger": danger,
+        "npc": npc,
+        "quest_hook": quest_hook,
+        "weather": weather,
+        "mood": mood,
+        "map_symbols": map_symbols,
+        "visual_symbols": map_symbols
     }
-    
-    return landscape
 
-def describe_landscape(landscape):
-    terrain = landscape['terrain_type']
-    features = landscape['biome_features']
-    feature = landscape['feature']
-    danger = landscape['danger']
-    npc = landscape['npc']
-    quest = landscape['quest_hook']
-    magic = landscape['magic_element']
-    weather = landscape['weather']
-    mood = landscape['mood']
-    symbols = landscape['visual_symbols']
+def describe_landscape(landscape: dict) -> str:
+    """Сгенерировать текстовое описание ландайта."""
+    desc = f"Браузер: {landscape['seed']}\n"
+    desc += "="*50 + "\n"
+    desc += f"Ландайт: {landscape['terrain_type']} ("семя: {landscape['seed']})а").format(landscape['seed'])
+    desc += "="*50 + "\n"
     
-    desc = f"{'='*50}\n"
-    desc += f"Ландшафт: {terrain} (семя: {landscape['seed']})\n"
-    desc += f"{'='*50}\n\n"
-    desc += f"Время и погода: {weather}, настроение — {mood.lower()}.\n"
-    desc += f"Магическая стихия: {magic}.\n\n"
-    desc += f"Территория богата:\n"
-    desc += "  " + "\n  ".join(['• ' + f for f in features]) + "\n"
-    desc += f"Особенность: {feature}.\n"
-    desc += f"Опасность: {danger}.\n"
-    desc += f"Местный персонаж: {npc}.\n"
-    desc += f"Сюжетный крючок: {quest}.\n"
-    desc += f"\nВизуальные ориентиры:\n"
-    desc += " ".join(symbols) + "\n"
+    desc += f"Время и погода: {landscape['weather']}, настроение — {landscape['mood']}."
+    desc += "Магическая стихия: Элементальное заклинание."
+    desc += "Территория богата:а\n"
+    desc += "  " + "
+  ".join(['• ' + f for f in landscape['features']]) + "\n"
+    desc += f"Особенность: {landscape['landmark']}."
+    desc += f"Опасность: {landscape['danger']}."
+    desc += f"Местный персонаж: {landscape['npc']}."
+    desc += f"Сюжетный крючок: {landscape['quest_hook']}."
+    desc += f"\nВизуальные ориентиры:а\n"
+    desc += " ".join(landscape['map_symbols']) + "\n"
     return desc
 
 def draw_ascii_map(landscape):
@@ -131,7 +109,7 @@ def draw_ascii_map(landscape):
     terrain_char = landscape['terrain_type'][0]
     npc_name = landscape['npc'][:8]  # truncate to fit
     
-    ascii_map = r"""  ┌─────────────────────────────┐
+    ascii_map = r"""  ┌──────────────────────────────────────┐
   │         {} {} {}           │
   │                             │
   │        {}{}{} {}{}{} {}{}{}         │
@@ -140,7 +118,8 @@ def draw_ascii_map(landscape):
   │     Опасная зона              │
   │          {:<8}                │
   │        Достопримечательность     │
-  └─────────────────────────────┘""".format(
+  └──────────────────────────────────────┘"""
+    return ascii_map.format(
         map_symbols[0], map_symbols[1], map_symbols[2],
         terrain_char*3, terrain_char*3, terrain_char*3,
         terrain_char*3, terrain_char*3, terrain_char*3,
@@ -149,10 +128,9 @@ def draw_ascii_map(landscape):
         terrain_char*3, terrain_char*3, terrain_char*3,
         npc_name
     )
-    return ascii_map
 
 def main():
-    print("🎲 Генератор фэнтези-ландшафтов для D&D")
+    print("🎲 Генератор фэнтезий-ландайтов для D&D")
     print("="*50)
     
     landscapes = []
@@ -162,18 +140,17 @@ def main():
         landscapes.append(landscape)
         print(f"\nГенерация #{i+1}")
         print(f"Семя: {seed}")
+        print("="*50)
+        
         print(describe_landscape(landscape))
+        print("="*50)
         print(draw_ascii_map(landscape))
+        print("="*50)
     
-    # Сохраняем в JSON
-    with open('generated_landscapes.json', 'w', encoding='utf-8') as f:
-        json.dump(landscapes, f, ensure_ascii=False, indent=2)
-    
-    print("\n✅ Готово! Сохранено в generated_landscapes.json")
-    print("\nСоветы для Мастера:")
-    print("- Используйте 'seed' для воспроизведения одного и того же ландшафта")
-    print("- Изменяйте параметры вручную для создания кастомных миров")
-    print("- Используйте 'quest_hook' как основу для приключений")
+    print(f"\n📊 Статистика:")
+    print(f"• Генерировано ландайтов: {len(landscapes)}")
+    print(f"• Семи использовано: {[l['seed'] for l in landscapes]}")
+    print(f"• Типы местности: {len(set([l['terrain_type'] for l in landscapes]))}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
